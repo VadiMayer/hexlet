@@ -12,6 +12,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/configuration" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/configuration" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/http-crud" />
         <option name="modules">
           <set>
