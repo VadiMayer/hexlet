@@ -20,8 +20,16 @@ public class Application {
     // Все пользователи
     private List<User> users = Data.getUsers();
 
+    @Autowired
+    private UserProperties admins;
+
     // BEGIN
-    
+    @GetMapping("/admins")
+    public List<User> getAdmins() {
+        List<String> users = admins.getAdmins();
+
+        return
+    }
     // END
 
     @GetMapping("/users")
