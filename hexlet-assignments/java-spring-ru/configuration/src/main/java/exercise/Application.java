@@ -1,5 +1,6 @@
 package exercise;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,10 +26,20 @@ public class Application {
 
     // BEGIN
     @GetMapping("/admins")
-    public List<User> getAdmins() {
-        List<String> users = admins.getAdmins();
-
-        return
+    public List<String> getAdminsName() {
+        List<String> adminsEmail = admins.getAdmins();
+        List<String> adminsName = new ArrayList<>();
+        for (String s : adminsEmail) {
+            for (User user : users) {
+                if (s.equals(user.getEmail())) {
+                    if (adminsName.contains(user.getName())) {
+                        continue;
+                    }
+                    adminsName.add(user.getName());
+                }
+            }
+        }
+        return adminsName;
     }
     // END
 
