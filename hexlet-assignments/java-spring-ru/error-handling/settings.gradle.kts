@@ -1,3 +1,3 @@
-rootProject.name = "first-start"
+rootProject.name = "error-handling"
 // spring.jpa.generate-ddl = true
 // spring.jpa.hibernate.ddl-auto

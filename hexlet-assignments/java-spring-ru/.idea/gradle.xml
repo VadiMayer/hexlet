@@ -20,6 +20,22 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/error-handling" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/error-handling" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/first-start" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/first-start" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/http-crud" />
         <option name="modules">
           <set>
