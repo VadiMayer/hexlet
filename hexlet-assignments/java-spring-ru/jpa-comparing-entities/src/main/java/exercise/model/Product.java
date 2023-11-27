@@ -4,13 +4,12 @@ import jakarta.persistence.*;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 // BEGIN
+@Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"title", "price"})
