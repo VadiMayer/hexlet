@@ -22,7 +22,17 @@ public class ProductsController {
     private ProductRepository productRepository;
 
     // BEGIN
-    
+    @GetMapping
+    public List<Product> getProducts(@RequestParam int min, @RequestParam int max) {
+        if (min != 0 && max != 0) {
+            return productRepository.findByPriceBetweenOrderByPriceDesc(min, max);
+        } else if (max != 0) {
+            return productRepository.findAllByPriceAfterOrderByPriceDesc(min);
+        } else if (min != 0) {
+            return productRepository.findAllByPriceBeforeOrderByPriceDesc(max);
+        } else
+            return productRepository.findAll();
+    }
     // END
 
     @GetMapping(path = "/{id}")
