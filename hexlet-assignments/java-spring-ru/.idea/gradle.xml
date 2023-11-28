@@ -44,6 +44,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/jpa-auditing" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/jpa-auditing" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/jpa-comparing-entities" />
         <option name="modules">
           <set>
@@ -56,6 +64,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/jpa-data" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/jpa-repository" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/jpa-repository" />
           </set>
         </option>
       </GradleProjectSettings>

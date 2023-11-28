@@ -6,8 +6,10 @@
     <file type="web" url="file://$PROJECT_DIR$/configuration" />
     <file type="web" url="file://$PROJECT_DIR$/error-handling" />
     <file type="web" url="file://$PROJECT_DIR$/first-start" />
+    <file type="web" url="file://$PROJECT_DIR$/jpa-auditing" />
     <file type="web" url="file://$PROJECT_DIR$/jpa-comparing-entities" />
     <file type="web" url="file://$PROJECT_DIR$/jpa-data" />
+    <file type="web" url="file://$PROJECT_DIR$/jpa-repository" />
     <file type="web" url="file://$PROJECT_DIR$/rest-api" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">

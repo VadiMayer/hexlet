@@ -1,16 +1,8 @@
 package exercise.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 
@@ -40,7 +32,20 @@ public class TasksController {
     }
 
     // BEGIN
-    
+    @PostMapping("")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Task create(@RequestBody Task task) {
+        return taskRepository.save(task);
+    }
+
+    @PutMapping("/{id}")
+    public Task update(@PathVariable long id, @RequestBody Task task) {
+        Task taskFromBase = taskRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Task with id " + id + " not found"));
+        taskFromBase.setTitle(task.getTitle());
+        taskFromBase.setDescription(task.getDescription());
+        return taskRepository.save(taskFromBase);
+    }
     // END
 
     @DeleteMapping(path = "/{id}")

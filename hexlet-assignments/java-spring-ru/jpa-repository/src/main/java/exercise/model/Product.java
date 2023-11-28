@@ -1,41 +1,35 @@
 package exercise.model;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.EntityListeners;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import java.time.LocalDate;
 
-// BEGIN
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import jakarta.persistence.GeneratedValue;
+
+
 @Entity
+@Table(name = "products")
 @EntityListeners(AuditingEntityListener.class)
-@Table
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-public class Task {
+public class Product {
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column
-    private Long id;
-    @Column
+    private long id;
+
     private String title;
-    @Column
-    private String description;
-    @Column
+
+    private int price;
+
     @CreatedDate
     private LocalDate createdAt;
-    @Column
-    @LastModifiedDate
-    private LocalDate updatedAt;
 }
-// END
