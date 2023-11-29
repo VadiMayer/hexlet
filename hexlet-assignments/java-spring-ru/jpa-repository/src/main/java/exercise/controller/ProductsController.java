@@ -1,12 +1,8 @@
 package exercise.controller;
 
+import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,13 +19,13 @@ public class ProductsController {
 
     // BEGIN
     @GetMapping
-    public List<Product> getProducts(@RequestParam int min, @RequestParam int max) {
-        if (min != 0 && max != 0) {
-            return productRepository.findByPriceBetweenOrderByPriceDesc(min, max);
-        } else if (max != 0) {
-            return productRepository.findAllByPriceAfterOrderByPriceDesc(min);
-        } else if (min != 0) {
-            return productRepository.findAllByPriceBeforeOrderByPriceDesc(max);
+    public List<Product> getProducts(@RequestParam @Nullable Integer min, @RequestParam @Nullable Integer max) {
+        if (min != null && max != null) {
+            return productRepository.findByPriceBetweenOrderByPriceAsc(min, max);
+        } else if (max != null) {
+            return productRepository.findAllByPriceBeforeOrderByPriceAsc(max);
+        } else if (min != null) {
+            return productRepository.findAllByPriceAfterOrderByPriceAsc(min);
         } else
             return productRepository.findAll();
     }
