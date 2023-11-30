@@ -24,18 +24,42 @@ import exercise.exception.ResourceNotFoundException;
 public class PostsController {
     private PostRepository postRepository;
 
-    public PostsController(PostRepository postRepository) {
+    private CommentRepository commentRepository;
+
+    public PostsController(PostRepository postRepository, CommentRepository commentRepository) {
         this.postRepository = postRepository;
+        this.commentRepository = commentRepository;
     }
 
     @GetMapping
     public List<Post> posts() {
         return postRepository.findAll();
     }
-    @PostMapping("/{id}")
+
+    @GetMapping("/{id}")
     public Post post(@PathVariable long id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("This post by " + id + " not exists"));
+    }
+
+    @PostMapping
+    public Post create(@RequestBody Post post) {
+        return postRepository.save(post);
+    }
+
+    @PutMapping("/{id}")
+    public Post edit(@PathVariable long id, @RequestBody Post post) {
+        Post ifPostIsExists = postRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("This post by " + id + " not exists"));
+        ifPostIsExists.setBody(post.getBody());
+        ifPostIsExists.setTitle(post.getTitle());
+        return postRepository.save(ifPostIsExists);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long id) {
+        postRepository.deleteById(id);
+        commentRepository.deleteByPostId(id);
     }
 }
 // END
