@@ -39,7 +39,7 @@ public class PostsController {
     @GetMapping("/{id}")
     public Post post(@PathVariable long id) {
         return postRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("This post by " + id + " not exists"));
+                .orElseThrow(() -> new ResourceNotFoundException("Post with id " + id + " not found"));
     }
 
     @PostMapping
@@ -50,7 +50,7 @@ public class PostsController {
     @PutMapping("/{id}")
     public Post edit(@PathVariable long id, @RequestBody Post post) {
         Post ifPostIsExists = postRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("This post by " + id + " not exists"));
+                .orElseThrow(() -> new ResourceNotFoundException("Post with id " + id + " not found"));
         ifPostIsExists.setBody(post.getBody());
         ifPostIsExists.setTitle(post.getTitle());
         return postRepository.save(ifPostIsExists);

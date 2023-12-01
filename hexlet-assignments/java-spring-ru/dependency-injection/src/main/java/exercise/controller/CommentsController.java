@@ -20,7 +20,7 @@ import exercise.repository.CommentRepository;
 import exercise.exception.ResourceNotFoundException;
 
 // BEGIN
-@Controller
+@RestController
 @RequestMapping("/comments")
 public class CommentsController {
 
@@ -39,6 +39,7 @@ public class CommentsController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Comment create(@RequestBody Comment comment) {
         return commentRepository.save(comment);
     }
