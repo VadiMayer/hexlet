@@ -9,6 +9,7 @@ import exercise.daytime.Daytime;
 import exercise.daytime.Day;
 import exercise.daytime.Night;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.context.annotation.RequestScope;
 
 // BEGIN
 
@@ -25,6 +26,7 @@ public class Application {
     }
 
     // BEGIN
+    @RequestScope
     @Bean
     public Daytime getCurrentTime() {
         LocalTime localTime = LocalTime.now();
