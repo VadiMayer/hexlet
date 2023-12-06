@@ -1,5 +1,7 @@
 package exercise.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,9 +24,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.datafaker.Faker;
 import exercise.repository.TaskRepository;
 import exercise.model.Task;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 // BEGIN
-
+@SpringBootTest
+@AutoConfigureMockMvc
 // END
 class ApplicationTest {
 
@@ -39,6 +44,13 @@ class ApplicationTest {
 
     @Autowired
     private TaskRepository taskRepository;
+
+    private Task task;
+
+    @BeforeEach
+    public void getTask() {
+        task = generateTask();
+    }
 
 
     @Test
@@ -66,11 +78,34 @@ class ApplicationTest {
         return Instancio.of(Task.class)
                 .ignore(Select.field(Task::getId))
                 .supply(Select.field(Task::getTitle), () -> faker.lorem().word())
-                .supply(Select.field(Task::getDescription), () -> faker.lorem().paragraph())
+                .supply(Select.field(Task::getDescription), () -> "faker.lorem().paragraph()")
                 .create();
     }
 
     // BEGIN
-    
+    @Test
+    public void testGetTask() throws Exception {
+        taskRepository.save(task);
+        MvcResult result = mockMvc.perform(get("/tasks/" + task.getId()))
+                .andExpect(status().isOk())
+                .andReturn();
+        String body = result.getResponse().getContentAsString();
+        assertThat(body).contains("faker.lorem().paragraph()");
+    }
+
+    @Test
+    public void testCreateTask() throws Exception {
+        task.setTitle("New task");
+        task.setDescription("Get the job done");
+
+        MockHttpServletRequestBuilder requestBuilder = post("/tasks")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(om.writeValueAsString(task));
+
+        MvcResult result = mockMvc.perform(requestBuilder)
+                .andExpect(status().isCreated())
+                .andReturn();
+    }
+
     // END
 }
