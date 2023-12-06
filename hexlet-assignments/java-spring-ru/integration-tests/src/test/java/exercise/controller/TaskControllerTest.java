@@ -105,6 +105,8 @@ class ApplicationTest {
         MvcResult result = mockMvc.perform(requestBuilder)
                 .andExpect(status().isCreated())
                 .andReturn();
+        String body = result.getResponse().getContentAsString();
+        assertThat(body).contains("Get the job done");
     }
 
     // END
