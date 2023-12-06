@@ -26,10 +26,12 @@ import exercise.repository.TaskRepository;
 import exercise.model.Task;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.transaction.annotation.Transactional;
 
 // BEGIN
 @SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
 // END
 class ApplicationTest {
 
@@ -50,6 +52,8 @@ class ApplicationTest {
     @BeforeEach
     public void getTask() {
         task = generateTask();
+        task.setTitle("New task");
+        task.setDescription("Get the job done");
     }
 
 
@@ -78,7 +82,7 @@ class ApplicationTest {
         return Instancio.of(Task.class)
                 .ignore(Select.field(Task::getId))
                 .supply(Select.field(Task::getTitle), () -> faker.lorem().word())
-                .supply(Select.field(Task::getDescription), () -> "faker.lorem().paragraph()")
+                .supply(Select.field(Task::getDescription), () -> faker.lorem().paragraph())
                 .create();
     }
 
@@ -86,18 +90,17 @@ class ApplicationTest {
     @Test
     public void testGetTask() throws Exception {
         taskRepository.save(task);
+
         MvcResult result = mockMvc.perform(get("/tasks/" + task.getId()))
                 .andExpect(status().isOk())
                 .andReturn();
+
         String body = result.getResponse().getContentAsString();
-        assertThat(body).contains("faker.lorem().paragraph()");
+        assertThat(body).contains("Get the job done");
     }
 
     @Test
     public void testCreateTask() throws Exception {
-        task.setTitle("New task");
-        task.setDescription("Get the job done");
-
         MockHttpServletRequestBuilder requestBuilder = post("/tasks")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(om.writeValueAsString(task));
@@ -105,9 +108,25 @@ class ApplicationTest {
         MvcResult result = mockMvc.perform(requestBuilder)
                 .andExpect(status().isCreated())
                 .andReturn();
+
         String body = result.getResponse().getContentAsString();
-        assertThat(body).contains("Get the job done");
+        assertThat(body).contains("New task");
     }
 
+    @Test
+    public void testPutTask() throws Exception {
+        taskRepository.save(task);
+
+        MockHttpServletRequestBuilder requestBuilder = put("/tasks/" + task.getId())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(om.writeValueAsString(task));
+
+        MvcResult result = mockMvc.perform(requestBuilder)
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String body = result.getResponse().getContentAsString();
+        assertThat(body).contains(String.valueOf(task.getId()));
+    }
     // END
 }
