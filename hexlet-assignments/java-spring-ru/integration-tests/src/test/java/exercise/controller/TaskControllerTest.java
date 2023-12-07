@@ -1,6 +1,5 @@
 package exercise.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
@@ -19,7 +18,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
-import java.util.HashMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.datafaker.Faker;
 import exercise.repository.TaskRepository;
@@ -56,6 +54,10 @@ class ApplicationTest {
         task.setDescription("Get the job done");
     }
 
+    private void save() {
+        taskRepository.save(task);
+    }
+
 
     @Test
     public void testWelcomePage() throws Exception {
@@ -89,7 +91,7 @@ class ApplicationTest {
     // BEGIN
     @Test
     public void testGetTask() throws Exception {
-        taskRepository.save(task);
+        save();
 
         MvcResult result = mockMvc.perform(get("/tasks/" + task.getId()))
                 .andExpect(status().isOk())
@@ -115,7 +117,7 @@ class ApplicationTest {
 
     @Test
     public void testPutTask() throws Exception {
-        taskRepository.save(task);
+        save();
 
         MockHttpServletRequestBuilder requestBuilder = put("/tasks/" + task.getId())
                 .contentType(MediaType.APPLICATION_JSON)
@@ -127,6 +129,15 @@ class ApplicationTest {
 
         String body = result.getResponse().getContentAsString();
         assertThat(body).contains(String.valueOf(task.getId()));
+    }
+
+    @Test
+    public void testDeleteTask() throws Exception {
+        save();
+        
+        mockMvc.perform(delete("/tasks/" + task.getId()))
+                .andExpect(status().isOk());
+        assertThat(taskRepository.findAll().size()).isEqualTo(0);
     }
     // END
 }
