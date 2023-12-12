@@ -134,7 +134,7 @@ class ApplicationTest {
     @Test
     public void testDeleteTask() throws Exception {
         save();
-        
+
         mockMvc.perform(delete("/tasks/" + task.getId()))
                 .andExpect(status().isOk());
         assertThat(taskRepository.findAll().size()).isEqualTo(0);
