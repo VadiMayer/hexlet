@@ -36,6 +36,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/dto" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/dto" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/error-handling" />
         <option name="modules">
           <set>

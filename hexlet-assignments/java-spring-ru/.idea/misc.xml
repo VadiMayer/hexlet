@@ -6,6 +6,7 @@
     <file type="web" url="file://$PROJECT_DIR$/beans" />
     <file type="web" url="file://$PROJECT_DIR$/configuration" />
     <file type="web" url="file://$PROJECT_DIR$/dependency-injection" />
+    <file type="web" url="file://$PROJECT_DIR$/dto" />
     <file type="web" url="file://$PROJECT_DIR$/error-handling" />
     <file type="web" url="file://$PROJECT_DIR$/first-start" />
     <file type="web" url="file://$PROJECT_DIR$/integration-tests" />
