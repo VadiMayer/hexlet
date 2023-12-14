@@ -18,6 +18,6 @@ public class PostDTO {
 
     private String body;
 
-    private List<Comment> comments;
+    private List<CommentDTO> comments;
 }
 // END
