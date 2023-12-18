@@ -52,6 +52,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/dto-to-entity-for-update" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/dto-to-entity-for-update" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/error-handling" />
         <option name="modules">
           <set>

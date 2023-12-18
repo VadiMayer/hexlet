@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dependency-injection.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dependency-injection.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dependency-injection.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dependency-injection.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dto.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dto.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/http-crud.main.iml" filepath="$PROJECT_DIR$/.idea/modules/http-crud.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/http-crud.test.iml" filepath="$PROJECT_DIR$/.idea/modules/http-crud.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-spring-ru.iml" filepath="$PROJECT_DIR$/.idea/java-spring-ru.iml" />
