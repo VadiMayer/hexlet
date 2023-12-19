@@ -2,14 +2,35 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beans.main.iml" filepath="$PROJECT_DIR$/.idea/modules/beans.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beans.test.iml" filepath="$PROJECT_DIR$/.idea/modules/beans.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/configuration.main.iml" filepath="$PROJECT_DIR$/.idea/modules/configuration.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/configuration.test.iml" filepath="$PROJECT_DIR$/.idea/modules/configuration.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dependency-injection.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dependency-injection.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dependency-injection.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dependency-injection.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto-to-entity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dto-to-entity.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto-to-entity.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dto-to-entity.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dto.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dto.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/error-handling.main.iml" filepath="$PROJECT_DIR$/.idea/modules/error-handling.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/error-handling.test.iml" filepath="$PROJECT_DIR$/.idea/modules/error-handling.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/http-crud.main.iml" filepath="$PROJECT_DIR$/.idea/modules/http-crud.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/http-crud.test.iml" filepath="$PROJECT_DIR$/.idea/modules/http-crud.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/integration-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/integration-tests.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/integration-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/integration-tests.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-spring-ru.iml" filepath="$PROJECT_DIR$/.idea/java-spring-ru.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-auditing.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-auditing.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-auditing.test.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-auditing.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-comparing-entities.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-comparing-entities.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-comparing-entities.test.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-comparing-entities.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-data.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-data.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-data.test.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-data.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-repository.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-repository.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpa-repository.test.iml" filepath="$PROJECT_DIR$/.idea/modules/jpa-repository.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/response-entity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/response-entity.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/response-entity.test.iml" filepath="$PROJECT_DIR$/.idea/modules/response-entity.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-api.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-api.test.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-api.test.iml" />
     </modules>
   </component>
 </project>
