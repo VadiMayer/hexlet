@@ -44,6 +44,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/dto-mapper" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/dto-mapper" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/dto-to-entity" />
         <option name="modules">
           <set>
