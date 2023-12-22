@@ -16,11 +16,14 @@ public abstract class ProductMapper {
     @Mapping(target = "name", source = "title")
     @Mapping(target = "cost", source = "price")
     @Mapping(target = "barcode", source = "vendorCode")
-    public abstract Product map1(ProductCreateDTO createDTO);
+    public abstract Product map(ProductCreateDTO createDTO);
     @Mapping(target = "title", source = "name")
     @Mapping(target = "price", source = "cost")
     @Mapping(target = "vendorCode", source = "barcode")
-    public abstract ProductDTO map2(Product product);
+    public abstract ProductDTO map(Product product);
+
+    @Mapping(target = "cost", source = "price")
+    public abstract Product map1(ProductDTO createDTO);
 
     @InheritConfiguration(name = "map1")
     public abstract void update(ProductUpdateDTO productUpdateDTO, @MappingTarget Product product);

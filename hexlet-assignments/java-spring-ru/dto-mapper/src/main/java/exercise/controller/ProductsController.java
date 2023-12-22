@@ -38,7 +38,7 @@ public class ProductsController {
         List<Product> products = productRepository.findAll();
         List<ProductDTO> dtoList = new ArrayList<>();
         for (Product product: products) {
-            dtoList.add(productMapper.map2(product));
+            dtoList.add(productMapper.map(product));
         }
         return dtoList;
     }
@@ -47,24 +47,26 @@ public class ProductsController {
     public ProductDTO getProduct(@PathVariable long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found " + id));
-        return productMapper.map2(product);
+        return productMapper.map(product);
     }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ProductDTO create(@RequestBody ProductCreateDTO productCreateDTO) {
-        Product product = productMapper.map1(productCreateDTO);
+        Product product = productMapper.map(productCreateDTO);
         productRepository.save(product);
-        return productMapper.map2(product);
+        return productMapper.map(product);
     }
 
     @PutMapping("/{id}")
     public ProductDTO put(@RequestBody ProductUpdateDTO productUpdateDTO, @PathVariable long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found " + id));
+        System.out.println(product.getCost());
         productMapper.update(productUpdateDTO, product);
+        System.out.println(product.getCost());
         productRepository.save(product);
-        return productMapper.map2(product);
+        return productMapper.map(product);
     }
     // END
 }
