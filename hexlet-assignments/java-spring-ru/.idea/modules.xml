@@ -8,6 +8,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/configuration.test.iml" filepath="$PROJECT_DIR$/.idea/modules/configuration.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dependency-injection.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dependency-injection.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dependency-injection.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dependency-injection.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto-mapper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dto-mapper.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto-mapper.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dto-mapper.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto-to-entity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dto-to-entity.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto-to-entity.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dto-to-entity.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dto.main.iml" />

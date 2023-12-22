@@ -8,9 +8,9 @@ import org.mapstruct.*;
 
 // BEGIN
 @Mapper(
-//        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
-        componentModel = MappingConstants.ComponentModel.SPRING
-//        unmappedTargetPolicy = ReportingPolicy.IGNORE
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        componentModel = MappingConstants.ComponentModel.SPRING,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public abstract class ProductMapper {
     @Mapping(target = "name", source = "title")
@@ -23,9 +23,9 @@ public abstract class ProductMapper {
     public abstract ProductDTO map(Product product);
 
     @Mapping(target = "cost", source = "price")
-    public abstract Product map1(ProductDTO createDTO);
+    public abstract Product map(ProductUpdateDTO productDTO);
 
-    @InheritConfiguration(name = "map1")
+    @InheritConfiguration
     public abstract void update(ProductUpdateDTO productUpdateDTO, @MappingTarget Product product);
 }
 // END

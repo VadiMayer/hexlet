@@ -62,9 +62,7 @@ public class ProductsController {
     public ProductDTO put(@RequestBody ProductUpdateDTO productUpdateDTO, @PathVariable long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found " + id));
-        System.out.println(product.getCost());
         productMapper.update(productUpdateDTO, product);
-        System.out.println(product.getCost());
         productRepository.save(product);
         return productMapper.map(product);
     }
