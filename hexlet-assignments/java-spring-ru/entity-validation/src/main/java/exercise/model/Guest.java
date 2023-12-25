@@ -8,10 +8,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -34,7 +31,24 @@ public class Guest {
     private long id;
 
     // BEGIN
-    
+    @NotBlank
+    @Size(min = 2)
+    private String name;
+
+    @Email
+    private String email;
+
+    @Pattern(regexp = "[+]")
+    @Size(min = 11, max = 13)
+    private String phoneNumber;
+
+    @Positive
+    @Size(min = 4, max = 4)
+    private String clubCard;
+
+    @NotNull
+    @Past
+    private LocalDate cardValidUntil;
     // END
 
     @CreatedDate

@@ -1,6 +1,7 @@
 package exercise.controller;
 
 import exercise.mapper.GuestMapper;
+import exercise.model.Guest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,6 +47,12 @@ public class GuestsController {
     }
 
     // BEGIN
-    
+    @PostMapping
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public GuestDTO create(@Valid @RequestBody GuestCreateDTO createDTO) {
+        Guest guest = guestMapper.map(createDTO);
+        guestRepository.save(guest);
+        return guestMapper.map(guest);
+    }
     // END
 }
