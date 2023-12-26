@@ -48,7 +48,7 @@ public class GuestsController {
 
     // BEGIN
     @PostMapping
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.CREATED)
     public GuestDTO create(@Valid @RequestBody GuestCreateDTO createDTO) {
         Guest guest = guestMapper.map(createDTO);
         guestRepository.save(guest);

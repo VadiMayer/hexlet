@@ -68,6 +68,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/entity-validation" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/entity-validation" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/error-handling" />
         <option name="modules">
           <set>

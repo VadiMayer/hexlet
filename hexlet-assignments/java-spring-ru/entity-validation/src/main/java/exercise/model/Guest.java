@@ -1,6 +1,5 @@
 package exercise.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -38,16 +37,14 @@ public class Guest {
     @Email
     private String email;
 
-    @Pattern(regexp = "[+]")
+    @Pattern(regexp = "\\+\\d+")
     @Size(min = 11, max = 13)
     private String phoneNumber;
 
-    @Positive
     @Size(min = 4, max = 4)
     private String clubCard;
 
-    @NotNull
-    @Past
+    @FutureOrPresent
     private LocalDate cardValidUntil;
     // END
 

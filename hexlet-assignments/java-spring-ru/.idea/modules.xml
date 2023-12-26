@@ -14,6 +14,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto-to-entity.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dto-to-entity.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dto.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dto.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/entity-validation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/entity-validation.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/entity-validation.test.iml" filepath="$PROJECT_DIR$/.idea/modules/entity-validation.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/error-handling.main.iml" filepath="$PROJECT_DIR$/.idea/modules/error-handling.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/error-handling.test.iml" filepath="$PROJECT_DIR$/.idea/modules/error-handling.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/http-crud.main.iml" filepath="$PROJECT_DIR$/.idea/modules/http-crud.main.iml" />
