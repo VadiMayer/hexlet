@@ -14,9 +14,14 @@ import exercise.model.Car;
 public interface CarMapper {
 
     CarDTO map(Car car);
-
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
     Car map(CarCreateDTO createDTO);
 
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
     @InheritConfiguration
     void update(CarUpdateDTO carUpdateDTO, @MappingTarget Car car);
 
