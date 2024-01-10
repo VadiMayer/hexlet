@@ -4,6 +4,7 @@ import exercise.dto.TaskCreateDTO;
 import exercise.dto.TaskDTO;
 import exercise.dto.TaskUpdateDTO;
 import exercise.model.Task;
+import exercise.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
@@ -19,7 +20,11 @@ import org.mapstruct.ReportingPolicy;
 public abstract class TaskMapper {
 
     // BEGIN
-    
+    @Mapping(target = "assignee", source = "assigneeId")
+    public abstract Task map(TaskCreateDTO createDTO);
+    @Mapping(target = "assigneeId", source = "assignee")
+    public abstract TaskDTO map(Task task);
+
     // END
 
 }
