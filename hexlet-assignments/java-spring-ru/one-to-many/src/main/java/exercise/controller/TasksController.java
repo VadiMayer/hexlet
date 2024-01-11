@@ -6,6 +6,7 @@ import exercise.dto.TaskCreateDTO;
 import exercise.dto.TaskDTO;
 import exercise.dto.TaskUpdateDTO;
 import exercise.mapper.TaskMapper;
+import exercise.model.Task;
 import exercise.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,10 +24,40 @@ import exercise.exception.ResourceNotFoundException;
 import exercise.repository.TaskRepository;
 import jakarta.validation.Valid;
 
+/*
+Реализуйте полный CRUD сущности задач. Создайте обработчики для просмотра списка всех задач и конкретной задачи,
+создания, обновления и удаления задачи:
+
+GET /tasks – просмотр списка всех задач
+GET /tasks/{id} – просмотр конкретной задачи
+POST /tasks – создание новой задачи
+PUT /tasks/{id} – редактирование задачи. При редактировании мы должны иметь возможность поменять название,
+описание задачи и ответственного разработчика
+DELETE /tasks/{id} – удаление задачи
+ */
+
+
 @RestController
 @RequestMapping("/tasks")
 public class TasksController {
     // BEGIN
-    
+    private TaskRepository taskRepository;
+
+    private TaskMapper taskMapper;
+
+    @GetMapping
+    public List<TaskDTO> getTasks() {
+        List<Task> tasks = taskRepository.findAll();
+        return tasks.stream()
+                .map(task -> taskMapper.map(task))
+                .toList();
+    }
+
+    @GetMapping("/{id}")
+    public TaskDTO getTask(long id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Task with id " + id + " not found"));
+        return taskMapper.map(task);
+    }
     // END
 }
