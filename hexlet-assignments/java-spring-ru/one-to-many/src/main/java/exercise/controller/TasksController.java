@@ -54,10 +54,25 @@ public class TasksController {
     }
 
     @GetMapping("/{id}")
-    public TaskDTO getTask(long id) {
+    public TaskDTO getTask(@PathVariable long id) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Task with id " + id + " not found"));
         return taskMapper.map(task);
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public TaskDTO create(@RequestBody TaskCreateDTO createDTO) {
+        Task task = taskMapper.map(createDTO);
+        taskRepository.save(task);
+        return taskMapper.map(task);
+    }
     // END
 }
+
+/*
+POST /tasks – создание новой задачи
+PUT /tasks/{id} – редактирование задачи. При редактировании мы должны иметь возможность поменять название,
+описание задачи и ответственного разработчика
+DELETE /tasks/{id} – удаление задачи
+ */
