@@ -5,12 +5,7 @@ import exercise.dto.TaskDTO;
 import exercise.dto.TaskUpdateDTO;
 import exercise.model.Task;
 import exercise.model.User;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
 
 @Mapper(
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
@@ -24,6 +19,9 @@ public abstract class TaskMapper {
     public abstract Task map(TaskCreateDTO createDTO);
     @Mapping(target = "assigneeId", source = "assignee")
     public abstract TaskDTO map(Task task);
+
+    @InheritConfiguration
+    public abstract void update(TaskUpdateDTO updateDTO, @MappingTarget Task task);
 
     // END
 
