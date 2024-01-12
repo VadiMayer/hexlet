@@ -70,13 +70,15 @@ public class TasksController {
 
     @PutMapping("/{id}")
     public void put(@PathVariable long id, @RequestBody TaskUpdateDTO taskUpdateDTO) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Task with id " + id + " not found"));
+        taskMapper.update(taskUpdateDTO, task);
+        taskRepository.save(task);
+    }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long id) {
+        taskRepository.deleteById(id);
     }
     // END
 }
-
-/*
-PUT /tasks/{id} – редактирование задачи. При редактировании мы должны иметь возможность поменять название,
-описание задачи и ответственного разработчика
-DELETE /tasks/{id} – удаление задачи
- */
