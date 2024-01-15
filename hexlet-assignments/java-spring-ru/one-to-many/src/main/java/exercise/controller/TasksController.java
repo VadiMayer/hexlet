@@ -7,6 +7,7 @@ import exercise.dto.TaskDTO;
 import exercise.dto.TaskUpdateDTO;
 import exercise.mapper.TaskMapper;
 import exercise.model.Task;
+import exercise.model.User;
 import exercise.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,25 +25,17 @@ import exercise.exception.ResourceNotFoundException;
 import exercise.repository.TaskRepository;
 import jakarta.validation.Valid;
 
-/*
-Реализуйте полный CRUD сущности задач. Создайте обработчики для просмотра списка всех задач и конкретной задачи,
-создания, обновления и удаления задачи:
-
-GET /tasks – просмотр списка всех задач
-GET /tasks/{id} – просмотр конкретной задачи
-POST /tasks – создание новой задачи
-PUT /tasks/{id} – редактирование задачи. При редактировании мы должны иметь возможность поменять название,
-описание задачи и ответственного разработчика
-DELETE /tasks/{id} – удаление задачи
- */
-
-
 @RestController
 @RequestMapping("/tasks")
 public class TasksController {
     // BEGIN
+    @Autowired
     private TaskRepository taskRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private TaskMapper taskMapper;
 
     @GetMapping
@@ -69,14 +62,18 @@ public class TasksController {
     }
 
     @PutMapping("/{id}")
-    public void put(@PathVariable long id, @RequestBody TaskUpdateDTO taskUpdateDTO) {
+    public void put(@PathVariable long id, @RequestBody @Valid TaskUpdateDTO taskUpdateDTO) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Task with id " + id + " not found"));
+        User user =  userRepository.findById(taskUpdateDTO.getAssigneeId())
+                .orElseThrow(() -> new ResourceNotFoundException("User with id " + id + " not found"));
         taskMapper.update(taskUpdateDTO, task);
+        task.setAssignee(user);
         taskRepository.save(task);
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id) {
         taskRepository.deleteById(id);
     }

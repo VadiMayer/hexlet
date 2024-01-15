@@ -4,7 +4,6 @@ import exercise.dto.TaskCreateDTO;
 import exercise.dto.TaskDTO;
 import exercise.dto.TaskUpdateDTO;
 import exercise.model.Task;
-import exercise.model.User;
 import org.mapstruct.*;
 
 @Mapper(
@@ -15,12 +14,11 @@ import org.mapstruct.*;
 public abstract class TaskMapper {
 
     // BEGIN
-    @Mapping(target = "assignee", source = "assigneeId")
+    @Mapping(target = "assignee.id", source = "assigneeId")
     public abstract Task map(TaskCreateDTO createDTO);
-    @Mapping(target = "assigneeId", source = "assignee")
+    @Mapping(target = "assigneeId", source = "assignee.id")
     public abstract TaskDTO map(Task task);
 
-    @InheritConfiguration
     public abstract void update(TaskUpdateDTO updateDTO, @MappingTarget Task task);
 
     // END
