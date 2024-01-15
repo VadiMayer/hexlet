@@ -16,7 +16,7 @@ public abstract class TaskMapper {
     // BEGIN
     @Mapping(target = "assignee.id", source = "assigneeId")
     public abstract Task map(TaskCreateDTO createDTO);
-    @Mapping(target = "assigneeId", source = "assignee.id")
+    @Mapping(target = "assigneeId", expression = "java(task.getAssignee().getId())")
     public abstract TaskDTO map(Task task);
 
     public abstract void update(TaskUpdateDTO updateDTO, @MappingTarget Task task);
