@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/annotations" />
     <file type="web" url="file://$PROJECT_DIR$/beans" />
     <file type="web" url="file://$PROJECT_DIR$/configuration" />
+    <file type="web" url="file://$PROJECT_DIR$/crud" />
     <file type="web" url="file://$PROJECT_DIR$/dependency-injection" />
     <file type="web" url="file://$PROJECT_DIR$/dto" />
     <file type="web" url="file://$PROJECT_DIR$/dto-mapper" />
