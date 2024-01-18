@@ -13,7 +13,7 @@ import org.mapstruct.*;
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class ProductMapper {
-    @Mapping(target = "categoryId", source = "category.id")
+    @Mapping(target = "category.id", source = "categoryId")
     public abstract Product map(ProductCreateDTO createDTO);
     @Mapping(target = "categoryId", source = "category.id")
     @Mapping(target = "categoryName", source = "category.name")

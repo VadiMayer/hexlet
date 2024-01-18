@@ -73,11 +73,9 @@ public class ProductsController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
-        
+        productRepository.deleteById(id);
     }
     // END
 }
-/*
-DELETE /products/{id} – удаление товара
-*/
