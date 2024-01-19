@@ -55,8 +55,9 @@ public class ProductsController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProductDTO create(@RequestBody @Valid ProductCreateDTO createDTO) {
         Product product = productMapper.map(createDTO);
-        categoryRepository.findByName(product.getCategory().getName())
+        Category category = categoryRepository.findById(createDTO.getCategoryId())
                 .orElseThrow(() -> new BadRequestException("Category with id " + createDTO.getCategoryId() + " not exists"));
+        product.setCategory(category);
         productRepository.save(product);
         return productMapper.map(product);
     }
