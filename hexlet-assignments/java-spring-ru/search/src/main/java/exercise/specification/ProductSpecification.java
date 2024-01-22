@@ -7,5 +7,12 @@ import exercise.dto.ProductParamsDTO;
 import exercise.model.Product;
 
 // BEGIN
+@Component
+public class ProductSpecification {
+    public Specification<Product> build(ProductParamsDTO paramsDTO) {
+        return null;
+    }
 
+    
+}
 // END

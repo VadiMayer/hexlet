@@ -24,6 +24,7 @@
     <file type="web" url="file://$PROJECT_DIR$/partial-update" />
     <file type="web" url="file://$PROJECT_DIR$/response-entity" />
     <file type="web" url="file://$PROJECT_DIR$/rest-api" />
+    <file type="web" url="file://$PROJECT_DIR$/search" />
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="org.jetbrains.annotations.Nullable" />
