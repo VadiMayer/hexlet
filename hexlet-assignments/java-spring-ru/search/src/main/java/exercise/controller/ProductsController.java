@@ -36,7 +36,8 @@ public class ProductsController {
     private ProductMapper productMapper;
 
     // BEGIN
-    
+    @Autowired
+    private ProductSpecification specBuilder;
     // END
 
     @PostMapping("")
