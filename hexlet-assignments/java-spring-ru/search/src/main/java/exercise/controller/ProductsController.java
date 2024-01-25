@@ -7,9 +7,12 @@ import exercise.dto.ProductDTO;
 import exercise.dto.ProductParamsDTO;
 import exercise.dto.ProductUpdateDTO;
 import exercise.mapper.ProductMapper;
+import exercise.model.Product;
 import exercise.specification.ProductSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +41,14 @@ public class ProductsController {
     // BEGIN
     @Autowired
     private ProductSpecification specBuilder;
+
+    @GetMapping
+    public List<ProductDTO> getProducts(ProductParamsDTO paramsDTO, @RequestParam(defaultValue = "1") int page) {
+        Specification<Product> spec = specBuilder.build(paramsDTO);
+        Page<Product> products = productRepository.findAll(spec, PageRequest.of(page - 1, 10));
+        List<ProductDTO> result = products.map(productMapper::map).toList();
+        return result;
+    }
     // END
 
     @PostMapping("")

@@ -21,27 +21,37 @@ public class ProductSpecification {
 
     private Specification<Product> withCategoryId(Long categoryId) {
         return ((root, query, criteriaBuilder) ->
-                categoryId == null ? criteriaBuilder.conjunction() : criteriaBuilder.equal(root.get("categoryId"), categoryId));
+                categoryId == null
+                        ? criteriaBuilder.conjunction()
+                        : criteriaBuilder.equal(root.get("category").get("id"), categoryId));
     }
 
     private Specification<Product> withPriceGt(Integer priceGt) {
         return ((root, query, criteriaBuilder) ->
-                priceGt == null ? criteriaBuilder.conjunction() : criteriaBuilder.greaterThan(root.get("priceGt"), priceGt));
+                priceGt == null
+                        ? criteriaBuilder.conjunction()
+                        : criteriaBuilder.greaterThan(root.get("price"), priceGt));
     }
 
     private Specification<Product> withPriceLt(Integer priceLt) {
         return ((root, query, criteriaBuilder) ->
-                priceLt == null ? criteriaBuilder.conjunction() : criteriaBuilder.lessThan(root.get("priceLt"), priceLt));
+                priceLt == null
+                        ? criteriaBuilder.conjunction()
+                        : criteriaBuilder.lessThan(root.get("price"), priceLt));
     }
 
     private Specification<Product> withRatingGt(Double ratingGt) {
         return ((root, query, criteriaBuilder) ->
-                ratingGt == null ? criteriaBuilder.conjunction() : criteriaBuilder.greaterThan(root.get("ratingGt"), ratingGt));
+                ratingGt == null
+                        ? criteriaBuilder.conjunction()
+                        : criteriaBuilder.greaterThan(root.get("rating"), ratingGt));
     }
 
     private Specification<Product> withTitleCont(String titleCont) {
         return ((root, query, criteriaBuilder) ->
-                titleCont == null ? criteriaBuilder.conjunction() : criteriaBuilder
+                titleCont == null
+                        ? criteriaBuilder.conjunction()
+                        : criteriaBuilder
                         .between(root.get("titleCont"), Character.toString(titleCont.charAt(0)), Character.toString(titleCont.charAt(titleCont.length()-1))));
     }
 
