@@ -9,6 +9,8 @@ import net.datafaker.Faker;
 import java.util.Random;
 import java.util.Locale;
 
+//Делал задачи из экзамена Лиги Цифровых Технологий
+
 @EnableJpaAuditing
 @SpringBootApplication
 public class Application {
