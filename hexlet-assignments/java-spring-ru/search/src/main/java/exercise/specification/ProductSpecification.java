@@ -52,7 +52,7 @@ public class ProductSpecification {
                 titleCont == null
                         ? criteriaBuilder.conjunction()
                         : criteriaBuilder
-                        .between(root.get("titleCont"), Character.toString(titleCont.charAt(0)), Character.toString(titleCont.charAt(titleCont.length()-1))));
+                        .like(root.get("title"), "%" + titleCont + "%"));
     }
 
 
