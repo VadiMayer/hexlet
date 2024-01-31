@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import net.datafaker.Faker;
 import java.util.Locale;
 
+//doing server for project for TopDom
+
 @EnableJpaAuditing
 @SpringBootApplication
 public class Application {
